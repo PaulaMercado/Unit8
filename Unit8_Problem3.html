@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>JavaScript Temperature Converter</title>
+</head>
+<body>
+<h1>Temperature Conversion</h1>
+<p>
+    <input type="text" id="temperature"/>
+    <button id="f_to_c">F to C </button>
+    <button id="c_to_f">C to F</button>
+    <!--Part A: See preceding two lines in order for the button element to work it
+    still has to have an id tag that calls the function with the corresponding id.
+
+    Part B: Take a closer look at how each tag defines he different aspect of a button.
+    think of a functional difference between the two button creating elements.
+
+    Button ans input type button elements work the same. There are things about each one
+    that make them a better choice depending on the usage but overall they do the same
+    thing. Button element allows the user to include images in the buttons. Also, the
+    button element is more customizable that input element and can handle other HTML
+    elements as their label where as input can only handle text.
+      -->
+</p>
+<p id="result"></p>
+<script>
+var report = function (celsius, fahrenheit) {
+document.getElementById("result").innerHTML =
+celsius + "\xb0C = " + fahrenheit + "\xb0F";
+};
+
+document.getElementById("f_to_c").onclick = function () {
+var f = document.getElementById("temperature").value;
+report((f - 32) / 1.8, f);
+};
+
+document.getElementById("c_to_f").onclick = function () {
+var c = document.getElementById("temperature").value;
+report(c, 1.8 * c + 32);
+};
+</script>
+</body>
+</html>

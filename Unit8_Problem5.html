@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tip Calculator</title>
+</head>
+<body>
+<!-- Implement a webpage that performs tip calculations. At a minimum, you will need an input element
+each for the original cost and for the tip rate, and a bitton to trigger calculations. Use input
+type = "number" to make input processing a little easier.-->
+<p>
+    <h1>Tip Calculator</h1>
+
+<h5> Please fill out form to calculate your total.</h5>
+
+    Check Total:<input type="number" id="total">
+</p>
+<p>
+    Tip:
+    <button id="ten">10&#37;</button>
+    <button id="fifteen">15&#37;</button>
+    <button id="twenty">20&#37;</button>
+    <button id="twentyfive">25&#37;</button>
+    <button id="thirty">30&#37;</button><br><br>
+    Custom Amount:<input type="number" id="tip" value="Optional">
+</p>
+<p>
+    <button id="calculate">Calculate</button>
+</p>
+
+<p id="result"></p>
+
+<script>
+
+    var calculate = function(tipAmount){
+        var total = (document.getElementById("total").value);
+        var tipInDollars = parseFloat(total * (tipAmount/100)).toFixed(2);
+        var totalAndTip = parseFloat(total + tipInDollars).toFixed(2);
+
+        document.getElementById("result").innerHTML = ("The tip amount is &#36;"
+        + tipInDollars + ". Your total is &#36;" + totalAndTip + "." );
+    }
+    document.getElementById("ten").onclick = function() {
+        calculate(10);
+    };
+
+    document.getElementById("fifteen").onclick = function() {
+        calculate(15);
+    };
+
+
+    document.getElementById("twenty").onclick = function() {
+        calculate(20);
+    };
+
+    document.getElementById("twentyfive").onclick = function() {
+        calculate(25);
+    };
+
+    document.getElementById("thirty").onclick = function() {
+        calculate(30);
+    };
+
+    document.getElementById("calculate").onclick = function() {
+        var tip = (document.getElementById("tip").value);
+        calculate(tip);
+    };
+
+</script>
+</body>
+</html>
